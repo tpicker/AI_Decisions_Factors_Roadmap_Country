@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Prioritize ten AI industry development factors and explain your decision for an assigned country. Includes student comments and Print / Save PDF.">
+<title>Country AI Development Decision Roadmap</title>
+<style>
+:root{color-scheme:light;--navy:#12385f;--ink:#17324d;--muted:#526b80;--line:#d6e0e8;--paper:#f3f6f9;--card:#f8fbfd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+button,input,select,textarea{font:inherit}
+button,input,select,textarea{color:var(--ink)}
+.wrap{max-width:1180px;margin:0 auto;padding:20px}
+.skip-link{position:absolute;top:-100px;left:20px;z-index:10;background:#fff;padding:12px;color:var(--navy)}
+.skip-link:focus{top:10px}
+:focus-visible{outline:3px solid #165ea8;outline-offset:3px}
+.hero{background:var(--navy);color:#fff;padding:26px;border-radius:14px}
+.eyebrow{margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#dae8f6}
+h1{margin:0 0 10px;font-size:clamp(25px,3.2vw,32px);line-height:1.2;max-width:850px}
+.hero .intro{margin:0;max-width:850px;line-height:1.6;color:#f0f6fc}
+.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:16px 0}
+.toolbar .save-note{flex:1;margin:0;font-size:13px;color:var(--muted)}
+button{min-height:44px;border:1px solid #b9c7d4;border-radius:8px;padding:10px 15px;background:#fff;font-weight:700;cursor:pointer}
+button:hover{background:#eaf0f6}
+button.primary{background:var(--navy);border-color:var(--navy);color:#fff}
+button.primary:hover{background:#1a4978}
+.content{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:18px}
+h2{font-size:21px;line-height:1.3;margin:0 0 8px}
+.sub{margin:0;color:var(--muted)}
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:20px}
+label{display:block;font-weight:700;margin-bottom:7px;font-size:14px}
+.optional{font-size:12px;font-weight:400;color:var(--muted)}
+input,select,textarea{width:100%;border:1px solid #aebfce;background:#fff;border-radius:8px;padding:11px 12px;min-height:44px}
+input::placeholder,textarea::placeholder{color:#596f82;opacity:1}
+.factor-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.progress{margin:0;background:#eef4f9;border:1px solid var(--line);padding:8px 12px;border-radius:8px;font-size:13px;white-space:nowrap}
+.scale-note{margin:14px 0 0;font-size:13px;color:var(--muted)}
+.roadmap{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:18px}
+.factor{background:var(--card);border:2px solid #c9d8e5;border-radius:12px;padding:14px;display:flex;flex-direction:column;min-width:0}
+.factor-number{display:block;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.06em;margin:0 0 8px}
+.factor h3{margin:0 0 20px;font-size:15px;line-height:1.4;color:#173f67;overflow-wrap:anywhere}
+.factor .rating-field{margin-top:auto}
+.factor label{font-size:12px;margin-bottom:6px}
+.factor select{font-size:14px;padding:9px 6px;min-height:44px}
+.index-summary{display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;background:#eef4f9;border:1px solid #c9d8e5;border-radius:12px;padding:20px;margin-top:20px}
+.index-summary h3{margin:0 0 6px;font-size:18px;color:var(--navy)}
+.index-description{margin:0;max-width:540px;font-size:13px;color:var(--muted)}
+.index-results{min-width:190px}
+.index-score{margin:0;font-size:32px;font-weight:700;line-height:1.2;color:var(--navy);font-variant-numeric:tabular-nums}
+.index-status{margin:7px 0 0;font-size:13px;color:var(--muted)}
+.analysis-prompt{margin:0 0 18px;max-width:940px;line-height:1.65}
+textarea{display:block;min-height:250px;resize:vertical;line-height:1.65}
+.help{margin:10px 0 0;font-size:13px;color:var(--muted)}
+footer{color:var(--muted);font-size:12px;text-align:center;padding:0 12px 18px}
+.print-report{display:none}
+@media(max-width:1000px){.roadmap{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.wrap{padding:12px}.hero{padding:22px 18px}.content{padding:20px 16px}.context-grid{grid-template-columns:1fr}.roadmap{grid-template-columns:1fr}.toolbar .save-note{flex-basis:100%}.toolbar button{flex:1}.factor h3{margin-bottom:16px}.factor-heading{gap:12px}textarea{min-height:280px}}
+@media print{
+ @page{margin:16mm}
+ body{background:#fff;color:#172b40;font-size:11pt}
+ body.ready .screen,.skip-link{display:none!important}
+ body.ready .print-report{display:block}
+ .wrap{max-width:none;margin:0;padding:0}
+ .print-report h1{font-size:23pt;max-width:none;color:#12385f;border-bottom:2px solid #12385f;padding-bottom:12px;margin-bottom:18px}
+ .print-report h2{font-size:15pt;margin-top:24px;break-after:avoid}
+ .report-context{margin:0 0 18px;display:grid;grid-template-columns:145px 1fr;gap:7px 12px}
+ .report-context dt{font-weight:700}
+ .report-context dd{margin:0;white-space:pre-wrap;overflow-wrap:anywhere}
+ .print-report table{border-collapse:collapse;width:100%;font-size:10pt;margin-top:12px}
+ .print-report thead{display:table-header-group}
+ .print-report th,.print-report td{border:1px solid #b9c7d4;text-align:left;padding:8px;vertical-align:top}
+ .print-report th{font-weight:700;background:#eef4f9}
+ .print-report th:last-child,.print-report td:last-child{width:145px}
+ .print-report tr{break-inside:avoid}
+ .print-report .report-comments{white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.6;height:auto;max-height:none;overflow:visible}
+ .print-report .report-prompt{font-size:10pt;color:#354d62;line-height:1.5}
+ .print-report .report-note{font-size:9pt;color:#354d62;margin-top:16px}
+ .print-report .report-index{font-size:21pt;font-weight:700;color:#12385f;margin:8px 0}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to roadmap</a>
+<div class="wrap">
+  <div class="screen">
+    <header class="hero">
+      <p class="eyebrow">Country decision roadmap</p>
+      <h1>Country AI Development Decision Roadmap</h1>
+      <p class="intro">Identify and prioritize the factors influencing your proposed AI industry development in your assigned country. Explain how your priorities support your decision.</p>
+    </header>
+    <div class="toolbar" aria-label="Roadmap actions">
+      <p class="save-note">Responses stay in this tab. Print or save a PDF before closing or refreshing.</p>
+      <button id="reset-ratings" type="button">Reset ratings</button>
+      <button id="print-button" type="button" class="primary">Print / Save PDF</button>
+    </div>
+    <noscript><p class="content">Enable JavaScript to calculate the priority index and create a printable response.</p></noscript>
+    <main id="main">
+      <section class="content" aria-labelledby="context-heading">
+        <h2 id="context-heading">Your development decision</h2>
+        <p class="sub">Identify the location and AI industry you are considering.</p>
+        <div class="context-grid">
+          <div>
+            <label for="location">Assigned country <span class="optional">(optional)</span></label>
+            <select id="location" autocomplete="off"><option value="">Select a country</option><option value="Algeria">Algeria</option><option value="Brazil">Brazil</option><option value="Costa Rica">Costa Rica</option><option value="France">France</option><option value="Ireland">Ireland</option><option value="Japan">Japan</option><option value="Jordan">Jordan</option><option value="Kenya">Kenya</option><option value="Mexico">Mexico</option><option value="Morocco">Morocco</option><option value="Oman">Oman</option><option value="Pakistan">Pakistan</option><option value="South Korea">South Korea</option><option value="Ukraine">Ukraine</option><option value="Venezuela">Venezuela</option><option value="Vietnam">Vietnam</option></select>
+          </div>
+          <div>
+            <label for="industry">Selected AI industry <span class="optional">(optional)</span></label>
+            <input id="industry" type="text" placeholder="Enter your proposed AI industry" autocomplete="off">
+          </div>
+        </div>
+      </section>
+      <section class="content" aria-labelledby="factors-heading">
+        <div class="factor-heading">
+          <div>
+            <h2 id="factors-heading">Prioritize your decision factors</h2>
+            <p class="sub">Assign each factor an importance weight from 0 to 5.</p>
+          </div>
+          <p class="progress" id="rating-progress">0 of 10 factors rated</p>
+        </div>
+        <p class="scale-note">0 = not applicable · 1 = lowest · 2 = low · 3 = moderate · 4 = high · 5 = highest</p>
+        <div class="roadmap" aria-label="Country decision factors"><div class="factor">
+          <span class="factor-number">FACTOR 01</span>
+          <h3 id="factor-name-0">National Economic Impact &amp; Growth Potential</h3>
+          <div class="rating-field">
+            <label id="weight-label-0" for="weight-0">Importance weight</label>
+            <select id="weight-0" aria-labelledby="factor-name-0 weight-label-0"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 02</span>
+          <h3 id="factor-name-1">Global Competitiveness &amp; Market Demand</h3>
+          <div class="rating-field">
+            <label id="weight-label-1" for="weight-1">Importance weight</label>
+            <select id="weight-1" aria-labelledby="factor-name-1 weight-label-1"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 03</span>
+          <h3 id="factor-name-2">Talent &amp; Workforce Availability</h3>
+          <div class="rating-field">
+            <label id="weight-label-2" for="weight-2">Importance weight</label>
+            <select id="weight-2" aria-labelledby="factor-name-2 weight-label-2"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 04</span>
+          <h3 id="factor-name-3">Policy &amp; Regulatory Support</h3>
+          <div class="rating-field">
+            <label id="weight-label-3" for="weight-3">Importance weight</label>
+            <select id="weight-3" aria-labelledby="factor-name-3 weight-label-3"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 05</span>
+          <h3 id="factor-name-4">Infrastructure &amp; Technology Readiness</h3>
+          <div class="rating-field">
+            <label id="weight-label-4" for="weight-4">Importance weight</label>
+            <select id="weight-4" aria-labelledby="factor-name-4 weight-label-4"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 06</span>
+          <h3 id="factor-name-5">Investment &amp; Capital Availability</h3>
+          <div class="rating-field">
+            <label id="weight-label-5" for="weight-5">Importance weight</label>
+            <select id="weight-5" aria-labelledby="factor-name-5 weight-label-5"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 07</span>
+          <h3 id="factor-name-6">Industry Ecosystem &amp; Partnerships</h3>
+          <div class="rating-field">
+            <label id="weight-label-6" for="weight-6">Importance weight</label>
+            <select id="weight-6" aria-labelledby="factor-name-6 weight-label-6"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 08</span>
+          <h3 id="factor-name-7">Social Impact &amp; Ethical Considerations</h3>
+          <div class="rating-field">
+            <label id="weight-label-7" for="weight-7">Importance weight</label>
+            <select id="weight-7" aria-labelledby="factor-name-7 weight-label-7"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 09</span>
+          <h3 id="factor-name-8">Sustainability &amp; Environmental Impact</h3>
+          <div class="rating-field">
+            <label id="weight-label-8" for="weight-8">Importance weight</label>
+            <select id="weight-8" aria-labelledby="factor-name-8 weight-label-8"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div>
+<div class="factor">
+          <span class="factor-number">FACTOR 10</span>
+          <h3 id="factor-name-9">National Security &amp; Strategic Priority</h3>
+          <div class="rating-field">
+            <label id="weight-label-9" for="weight-9">Importance weight</label>
+            <select id="weight-9" aria-labelledby="factor-name-9 weight-label-9"><option value="">Select a weight</option><option value="0">0 — Not applicable</option><option value="1">1 — Lowest</option><option value="2">2 — Low</option><option value="3">3 — Moderate</option><option value="4">4 — High</option><option value="5">5 — Highest</option></select>
+          </div>
+        </div></div>
+        <div class="index-summary">
+          <div>
+            <h3 id="index-heading">Priority index</h3>
+            <p class="index-description">Sum of the ten importance weights. Each factor contributes 0–5 points; maximum 50.</p>
+          </div>
+          <div class="index-results" role="status" aria-live="polite" aria-atomic="true" aria-labelledby="index-heading">
+            <p class="index-score" id="index-value">— / 50</p>
+            <p class="index-status" id="index-status">Not started · 0 of 10 factors rated</p>
+          </div>
+        </div>
+      </section>
+      <section class="content" aria-labelledby="comments-heading">
+        <h2 id="comments-heading">Student comments and analysis</h2>
+        <p id="analysis-prompt" class="analysis-prompt">Explain how the selected industry leverages the country’s strengths, supports high-quality jobs, strengthens resilience, and aligns with the country’s economic, social, and environmental priorities.</p>
+        <label for="comments">Your analysis</label>
+        <textarea id="comments" rows="10" placeholder="Write your analysis here." aria-describedby="analysis-prompt comments-help"></textarea>
+        <p class="help" id="comments-help">Connect your factor ratings to your recommendation. Include evidence and tradeoffs where relevant. Your full response is included when you print or save a PDF.</p>
+      </section>
+    </main>
+    <footer>Browser-based student drafting tool · Nothing is submitted or shared automatically.</footer>
+  </div>
+  <section id="print-report" class="print-report" aria-label="Printable roadmap response"></section>
+</div>
+<script type="application/json" id="roadmap-config">{"title": "Country AI Development Decision Roadmap", "scope": "country", "locationLabel": "Assigned country", "locationPlaceholder": "Enter your assigned country", "prompt": "Explain how the selected industry leverages the country’s strengths, supports high-quality jobs, strengthens resilience, and aligns with the country’s economic, social, and environmental priorities.", "factors": ["National Economic Impact & Growth Potential", "Global Competitiveness & Market Demand", "Talent & Workforce Availability", "Policy & Regulatory Support", "Infrastructure & Technology Readiness", "Investment & Capital Availability", "Industry Ecosystem & Partnerships", "Social Impact & Ethical Considerations", "Sustainability & Environmental Impact", "National Security & Strategic Priority"]}</script>
+<script>
+(() => {
+  'use strict';
+  const config = JSON.parse(document.getElementById('roadmap-config').textContent);
+  const locationInput = document.getElementById('location');
+  const industryInput = document.getElementById('industry');
+  const commentsInput = document.getElementById('comments');
+  const ratings = Array.from(document.querySelectorAll('.factor select'));
+  const progress = document.getElementById('rating-progress');
+  const indexValue = document.getElementById('index-value');
+  const indexStatus = document.getElementById('index-status');
+  const report = document.getElementById('print-report');
+  const weightLabels = {
+    '': 'Not rated', '0': '0 — Not applicable', '1': '1 — Lowest',
+    '2': '2 — Low', '3': '3 — Moderate', '4': '4 — High', '5': '5 — Highest'
+  };
+
+  function calculateIndex() {
+    const rated = ratings.filter(select => select.value !== '');
+    return {
+      total: rated.reduce((sum, select) => sum + Number(select.value), 0),
+      count: rated.length,
+      maximum: ratings.length * 5
+    };
+  }
+
+  function describeIndex(index) {
+    const count = `${index.count} of ${ratings.length} factors rated`;
+    if (index.count === 0) return `Not started · ${count}`;
+    return `${index.count === ratings.length ? 'Complete' : 'Partial total'} · ${count}`;
+  }
+
+  function updateSummary() {
+    const index = calculateIndex();
+    progress.textContent = `${index.count} of ${ratings.length} factors rated`;
+    indexValue.textContent = `${index.count ? index.total : '—'} / ${index.maximum}`;
+    indexStatus.textContent = describeIndex(index);
+  }
+
+  function makeElement(tag, text, className) {
+    const element = document.createElement(tag);
+    if (text !== undefined) element.textContent = text;
+    if (className) element.className = className;
+    return element;
+  }
+
+  function renderPrintReport() {
+    report.replaceChildren();
+    report.append(makeElement('h1', config.title));
+    const details = makeElement('dl', undefined, 'report-context');
+    const context = [
+      [config.locationLabel, locationInput.value.trim() || 'Not provided'],
+      ['Selected AI industry', industryInput.value.trim() || 'Not provided']
+    ];
+    context.forEach(([label, value]) => {
+      details.append(makeElement('dt', label), makeElement('dd', value));
+    });
+    const index = calculateIndex();
+    report.append(details, makeElement('h2', 'Priority index'));
+    report.append(makeElement('p', `${index.count ? index.total : '—'} / ${index.maximum}`, 'report-index'));
+    report.append(makeElement('p', describeIndex(index), 'report-prompt'));
+    report.append(makeElement('p', `Sum of the ten importance weights. Each factor contributes 0–5 points; maximum ${index.maximum}.`, 'report-prompt'));
+    report.append(makeElement('h2', 'Decision factors'));
+    report.append(makeElement('p', 'Importance weights: 0 = not applicable; 1 = lowest; 2 = low; 3 = moderate; 4 = high; 5 = highest.', 'report-prompt'));
+    const table = makeElement('table');
+    const head = makeElement('thead');
+    const headRow = makeElement('tr');
+    ['Decision factor', 'Importance weight'].forEach(text => {
+      const cell = makeElement('th', text);
+      cell.scope = 'col';
+      headRow.append(cell);
+    });
+    head.append(headRow);
+    const body = makeElement('tbody');
+    config.factors.forEach((name, index) => {
+      const row = makeElement('tr');
+      const factor = makeElement('th', `${index + 1}. ${name}`);
+      factor.scope = 'row';
+      row.append(factor, makeElement('td', weightLabels[ratings[index].value] || 'Not rated'));
+      body.append(row);
+    });
+    table.append(head, body);
+    report.append(table, makeElement('h2', 'Student comments and analysis'));
+    report.append(makeElement('p', config.prompt, 'report-prompt'));
+    report.append(makeElement('div', commentsInput.value.trim() ? commentsInput.value : 'No comments entered.', 'report-comments'));
+    report.append(makeElement('p', 'Importance weights express the student’s priorities for the selected AI industry.', 'report-note'));
+  }
+
+  ratings.forEach(select => select.addEventListener('change', updateSummary));
+  document.getElementById('reset-ratings').addEventListener('click', () => {
+    ratings.forEach(select => { select.value = ''; });
+    updateSummary();
+  });
+  document.getElementById('print-button').addEventListener('click', () => {
+    renderPrintReport();
+    window.print();
+  });
+  window.addEventListener('beforeprint', renderPrintReport);
+  updateSummary();
+  document.body.classList.add('ready');
+})();
+</script>
+</body>
+</html>
